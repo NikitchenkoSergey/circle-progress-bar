@@ -1,0 +1,15 @@
+{
+  "name": "circle-progress-bar",
+  "version": "1.0.0",
+  "description": "Circle Progress Bar",
+  "main": "circle-progress-bar.js",
+  "author": "Nikitchenko Sergey",
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  },
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Circle Progress Bar Example</title>
+    <script src="../build/circle-progress-bar.min.js"></script>
+</head>
+<body>
+    <div class="canvas-holder" style="position: relative;  width: 300px;">
+    <canvas id="canvas" width="300" height="300"></canvas>
+        <div id="canvas-data" style="    position: absolute;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        left:0 ;
+        font-size: 70px;
+        line-height: 300px;"></div>
+    </div>
+    <script>
+        var canvas = document.getElementById('canvas');
+
+        canvas.addEventListener('circleProgressBar.afterDraw', function (e) {
+            var span = document.getElementById('canvas-data');
+            span.innerText = (e.detail.self.getValue() * 100).toFixed(0) + '%';
+        }, false);
+
+
+        canvas.addEventListener('circleProgressBar.afterFrameDraw', function (e) {
+            var span = document.getElementById('canvas-data');
+            var currentValue = (e.detail.self.getValue() * e.detail.progress * 100).toFixed(0) + '%';
+            var currentSpanValue = span.innerText;
+            if (currentSpanValue != currentValue) {
+                span.innerText = currentValue;
+            }
+        }, false);
+
+        var rainbowColors = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00'];
+        var colors = ['#0000FF', '#4B0082', '#9400D3'];
+        var circleProgressBar = new CircleProgressBar(canvas, {colors: colors});
+        circleProgressBar.setValue(0.9);
+    </script>
+
+    Set value
+    <input type="range" onchange="circleProgressBar.setValue(this.value);" min="0" max="1" value="0.9" step="any">
+
+    <button onclick="if (colors.length == rainbowColors.length) return;
+    colors.push(rainbowColors[colors.length]); circleProgressBar.setOptions({colors: colors}); circleProgressBar.setCurrentPartLength(0); circleProgressBar.draw();">Add color</button>
+
+    <button onclick="
+    if (colors.length == 1) return;
+    colors.splice(colors.length - 1, 1); circleProgressBar.setOptions({colors: colors}); circleProgressBar.setCurrentPartLength(0); circleProgressBar.draw();">Remove color</button>
+</body>
+</html>
+  
+
