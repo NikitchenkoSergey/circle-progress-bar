@@ -4,7 +4,7 @@ A distinctive feature is the possibility of setting a conical gradient for progr
 <p align="center">
        <img src="http://nikitchenko.ru/circle-progress-bar.gif" width="400" alt="Example" />
 </p>
-View examples/index.html
+View live Demo: http://nikitchenko.ru/circle-progress-bar/
 
 #### Features:
  * Any number of colors
@@ -35,8 +35,8 @@ circleProgressBar.setValue(0.9);
 ## Options
 | Option | Default | Description |
 | --- | --- | --- |
-| `x` | `canwas.width / 2` | X position of circle  |
-| `y` | `canwas.heigth / 2`| Y position of circle |
+| `x` | `canvas.width / 2` | X position of circle  |
+| `y` | `canvas.heigth / 2`| Y position of circle |
 | `colors` | `['#9400D3', '#4B0082', '#0000FF']`| List of colors for gradient |
 | `radius` | `120`| Radius of circle |
 | `lineWidth` | `15`| Line width |
