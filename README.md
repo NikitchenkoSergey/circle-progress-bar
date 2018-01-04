@@ -11,6 +11,12 @@ View live Demo: http://nikitchenko.ru/circle-progress-bar/
  * Possibility to setup animation and sizes
  * Possibility to control from api methods
  * Events
+ 
+# Installation
+Use bower or download archive.
+```
+bower install circle-progress-bar
+```
 
 # Usage Instructions
 1. Link file:
