@@ -1,0 +1,25 @@
+{
+  "name": "circle-progress-bar",
+  "description": "Circle Progress Bar with conical gradient",
+  "main": "circle-progress-bar.js",
+  "authors": [
+    "Nikitchenko Sergey"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "canvas",
+    "javascript",
+    "conical",
+    "gradient",
+    "progress",
+    "bar"
+  ],
+  "homepage": "https://github.com/NikitchenkoSergey/circle-progress-bar",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
