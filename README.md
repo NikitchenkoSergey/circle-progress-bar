@@ -40,8 +40,8 @@ circleProgressBar.setValue(0.9);
 | `colors` | `['#9400D3', '#4B0082', '#0000FF']`| List of colors for gradient |
 | `radius` | `120`| Radius of circle |
 | `lineWidth` | `15`| Line width |
-| `frameInterval` | `5`| Interval of rendering circle animation |
-| `frameStep` | `0.05`| Step of arc length for one frame |
+| `frameInterval` | `10`| Interval of rendering circle animation |
+| `frameStep` | `0.1`| Step of arc length for one frame |
 | `startPosition` | `-(Math.PI / 2)`| Start position of circle arc |
 | `lineCap` | `round`| Value of canvas.context.lineCap |
 | `trackLineColor` | `#eee`| Color of track line. Set null for remove it. |
@@ -54,6 +54,7 @@ circleProgressBar.setValue(0.9);
 | `getValue` |  | Getting value |
 | `setOptions` | `Object` | Setting options |
 | `draw` | | Draw progress bar for current value and options |
+| `clear` | | Clear progress bar from canvas |
 
 ## Events
 | Event  | Description |

@@ -28,6 +28,7 @@
     </style>
 </head>
 <body>
+    <h2>Working with api</h2>
     <div class="canvas-holder" >
     <canvas id="canvas" width="300" height="300"></canvas>
         <div id="canvas-data"></div>
@@ -66,6 +67,18 @@
         if (colors.length == 1) return;
         colors.splice(colors.length - 1, 1); circleProgressBar.setOptions({colors: colors}); circleProgressBar.setCurrentPartLength(0); circleProgressBar.draw();">Remove color</button>
     </div>
+    <div style="clear: both;"></div>
+
+    <h2>Small progress bar with background, custom track line and animation time</h2>
+    <div style="padding: 20px; background: #000; display: inline-block;">
+    <canvas id="canvas2" width="150" height="150"></canvas>
+    </div>
+    <script>
+        var canvas2 = document.getElementById('canvas2');
+        var colors2 = ['#f0f', '#f0f', '#f00'];
+        var circleProgressBar2 = new CircleProgressBar(canvas2, {colors: colors2, radius: 50, lineWidth: 5, trackLineColor: '#fff', frameInterval: 5});
+        circleProgressBar2.setValue(0.8);
+    </script>
 </body>
 </html>
   

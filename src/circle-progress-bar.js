@@ -44,8 +44,8 @@ window.CircleProgressBar = function(canvas, options)
         y: null,
         radius: 120,
         lineWidth: 15,
-        frameInterval: 5,
-        frameStep: 0.05,
+        frameInterval: 10,
+        frameStep: 0.1,
         startPosition: -(Math.PI / 2),
         lineCap: 'round',
         trackLineColor: '#eee',
@@ -167,20 +167,13 @@ window.CircleProgressBar = function(canvas, options)
         self.sendEvent('init', self._options);
     };
 
-
     /**
-     * Draw progress bar for current value and options
+     * Getting gradient colors
+     * @returns {Array}
      */
-    this.draw = function() {
-        var context = self._context;
-        var colors = self.clone(self._options.colors),
-            startColor = null,
-            endColor = null;
-
-        var currentPartLength = self._currentPartLength;
-
+    this.getColors = function() {
+        var colors = self.clone(self._options.colors);
         var value = self.getValue();
-
         // for work properly colors count must be more 2
         // one color
         if (!self.isArray(colors)) {
@@ -213,6 +206,23 @@ window.CircleProgressBar = function(canvas, options)
             colors.push(colors[1]);
             colors.unshift(colors[0]);
         }
+
+        return colors;
+    };
+
+    /**
+     * Draw progress bar for current value and options
+     */
+    this.draw = function() {
+        var context = self._context;
+        var startColor = null,
+            endColor = null;
+
+        var colors = self.getColors();
+
+        var currentPartLength = self._currentPartLength;
+
+        var value = self.getValue();
 
         if (self._colorsCount > 0) {
             currentPartLength = currentPartLength * (self._colorsCount / colors.length);
@@ -340,7 +350,7 @@ window.CircleProgressBar = function(canvas, options)
      * @returns {boolean}
      */
     this.isObject = function(obj) {
-        if (Object.prototype.toString.call(obj) === '[object Array]') {
+        if (self.isArray(obj)) {
             return false;
         }
 
@@ -406,8 +416,7 @@ window.CircleProgressBar = function(canvas, options)
      * Clone object
      * @param obj
      */
-    this.clone = function(obj)
-    {
+    this.clone = function(obj) {
         return JSON.parse(JSON.stringify(obj));
     };
 
